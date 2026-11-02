@@ -1,4 +1,5 @@
 import { ExternalLink, ArrowUpDown } from "lucide-react";
+import { Link } from "react-router-dom";
 
 function TaskTable({
     tasks,
@@ -6,6 +7,7 @@ function TaskTable({
     totalPages,
     onPageChange,
     pageSize,
+    filters,
     setFilters,
     onPageSizeChange
 }) {
@@ -27,8 +29,20 @@ function TaskTable({
     };
 
     const changePagination = (e) => {
-        onPageSizeChange(Number(e.target.value))
-        updateFilter("limit", e.target.value)
+        onPageSizeChange(Number(e.target.value));
+        updateFilter("limit", e.target.value);
+    }
+
+    const changePage = (e) => {
+        console.log("This is your target value of next and prev", e.target.value);
+        if(e.target.value === "next"){
+            onPageChange((prev)=> prev + 1)
+            updateFilter("offset", filters.offset += filters.limit)
+        }
+        if(e.target.value === "previous"){
+            onPageChange((prev)=> prev - 1)
+            updateFilter("offset", filters.offset -= filters.limit)
+        }
     }
 
     const isOverdue = (task) => {
@@ -93,14 +107,15 @@ function TaskTable({
                                 </td>
 
                                 <td>
-                                    <a
-                                        href={task.sourceUrl}
+                                    <Link
+                                        to={task.sourceUrl}
+                                        state={{task: task}}
                                         target="_blank"
                                         rel="noopener noreferrer"
                                         className="source-link"
                                     >
                                         Open <ExternalLink size={14} />
-                                    </a>
+                                    </Link>
                                 </td>
                             </tr>
                             ))
@@ -136,14 +151,16 @@ function TaskTable({
 
                     <button
                         disabled={currentPage === 1}
-                        onClick={() => onPageChange(currentPage - 1)}
+                        value="previous"
+                        onClick={(e) => changePage(e)}
                     >
                         Previous
                     </button>
 
                     <button
                         disabled={currentPage === totalPages}
-                        onClick={() => onPageChange(currentPage + 1)}
+                        value="next"
+                        onClick={(e) => changePage(e)}
                     >
                         Next
                     </button>

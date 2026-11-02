@@ -15,6 +15,17 @@ const getAllTasks = () => {
     });
 };
 
+const getTask = (id) =>  {
+    const tasks = [...crmTasks, ...helpdeskTasks]
+    const task = tasks.find((task) => task.id === id);
+    const priority = calculatePriority(task);
+    return {
+            ...task,
+            priority: priority.label,
+            priorityScore: priority.score
+        };
+}
+
 const calculatePriority = (task) => {
     const urgencyScores = {
         Critical: 4,
@@ -86,6 +97,7 @@ const filterTasks = (filters = {}) => {
 };
 
 module.exports = {
+    getTask,
     getAllTasks,
     filterTasks
 };

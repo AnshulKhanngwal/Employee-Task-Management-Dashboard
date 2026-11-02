@@ -20,7 +20,9 @@ function Dashboard() {
         search: "",
         employee: "",
         status: "",
-        source: ""
+        source: "",
+        limit: 5,
+        offset: 0
     });
 
     useEffect(() => {
@@ -44,7 +46,7 @@ function Dashboard() {
 
     useEffect(() => {
         setCurrentPage(1);
-    }, [filters, pageSize]);
+    }, [pageSize]);
 
     const employees = useMemo(() => {
         return [...new Set(tasks.map(task => task.employee))].sort();
@@ -105,6 +107,7 @@ function Dashboard() {
                                     totalPages={totalPages}
                                     onPageChange={setCurrentPage}
                                     pageSize={pageSize}
+                                    filters={filters}
                                     setFilters={setFilters}
                                     onPageSizeChange={setPageSize}
                                 />

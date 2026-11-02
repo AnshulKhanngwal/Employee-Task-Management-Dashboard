@@ -1,6 +1,6 @@
 
 import { useEffect, useState } from "react";
-import { Link, useParams } from "react-router-dom";
+import { Link, useParams, useLocation } from "react-router-dom";
 import { fetchTasks } from "../services/taskService";
 import { ArrowLeft, ExternalLink } from "lucide-react";
 
@@ -10,20 +10,20 @@ function SourceTask() {
     const [task, setTask] = useState(null);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState("");
+    const filters = {
+        "id": taskId
+    }
 
     useEffect(() => {
         const loadTask = async () => {
             try {
-                const tasks = await fetchTasks();
-                const selectedTask = tasks.find(
-                    (item) => item.id === taskId
-                );
+                const selectedTask = await fetchTasks(filters);
 
                 if (!selectedTask) {
                     throw new Error("Task not found");
                 }
 
-                setTask(selectedTask);
+                setTask(selectedTask.data);
             } catch (err) {
                 setError(err.message);
             } finally {

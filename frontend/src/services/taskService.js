@@ -4,7 +4,7 @@ export const fetchTasks = async (filters = {}) => {
     const params = new URLSearchParams();
 
     Object.entries(filters).forEach(([key, value]) => {
-        if (value) {
+        if (key === "offset" || value) {
             params.append(key, value);
         }
     });

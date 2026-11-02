@@ -8,10 +8,10 @@ import {
 
 function Sidebar({setFilters}) {
     const updateFilter = (key, value) => {
-        // setFilters(prev => ({
-        //     ...prev,
-        //     [key]: value
-        // }));
+        setFilters(prev => ({
+            ...prev,
+            [key]: value
+        }));
     };
 
     return (
@@ -24,22 +24,22 @@ function Sidebar({setFilters}) {
             <p className="sidebar-label">WORKSPACE</p>
 
             <nav>
-                <button className = "nav-link" onClick={updateFilter("source", "")}>
+                <button className = "nav-link" onClick={() => updateFilter("source", "")}>
                     <LayoutDashboard size={19} />
                     Overview
                 </button>
 
-                <button className = "nav-link" onClick={updateFilter("source", "")}>
+                <button className = "nav-link" onClick={() => updateFilter("source", "")}>
                     <ListTodo size={19} />
                     All Tasks
                 </button>
 
-                <button className = "nav-link" onClick={updateFilter("source", "CRM")}>
+                <button className = "nav-link" onClick={() => updateFilter("source", "CRM")}>
                     <BriefcaseBusiness size={19} />
                     CRM Tasks
                 </button>
 
-                <button className = "nav-link" onClick={updateFilter("source", "Helpdesk")}>
+                <button className = "nav-link" onClick={() => updateFilter("source", "Helpdesk")}>
                     <Headset size={19} />
                     Helpdesk Tasks
                 </button>
