@@ -1,0 +1,35 @@
+[
+    {
+        "id": "CRM-101",
+        "title": "Follow up with potential client",
+        "description": "Contact the client regarding the proposal.",
+        "employee": "Rahul Sharma",
+        "status": "Pending",
+        "urgency": "High",
+        "deadline": "2026-11-01T18:00:00",
+        "source": "CRM",
+        "sourceUrl": "/crm/tasks/CRM-101"
+    },
+    {
+        "id": "CRM-102",
+        "title": "Update customer information",
+        "description": "Verify and update customer contact details.",
+        "employee": "Priya Verma",
+        "status": "In Progress",
+        "urgency": "Medium",
+        "deadline": "2026-11-03T15:00:00",
+        "source": "CRM",
+        "sourceUrl": "/crm/tasks/CRM-102"
+    },
+    {
+        "id": "CRM-103",
+        "title": "Prepare sales report",
+        "description": "Prepare the monthly sales performance report.",
+        "employee": "Amit Kumar",
+        "status": "Completed",
+        "urgency": "Low",
+        "deadline": "2026-10-29T12:00:00",
+        "source": "CRM",
+        "sourceUrl": "/crm/tasks/CRM-103"
+    }
+]

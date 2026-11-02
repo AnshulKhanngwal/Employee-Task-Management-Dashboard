@@ -1,0 +1,35 @@
+[
+    {
+        "id": "HD-201",
+        "title": "Resolve payment gateway issue",
+        "description": "Investigate payment failures reported by customers.",
+        "employee": "Amit Kumar",
+        "status": "Pending",
+        "urgency": "Critical",
+        "deadline": "2026-10-31T17:00:00",
+        "source": "Helpdesk",
+        "sourceUrl": "/helpdesk/tickets/HD-201"
+    },
+    {
+        "id": "HD-202",
+        "title": "Fix login authentication issue",
+        "description": "Investigate login failures for multiple users.",
+        "employee": "Rahul Sharma",
+        "status": "In Progress",
+        "urgency": "High",
+        "deadline": "2026-11-01T12:00:00",
+        "source": "Helpdesk",
+        "sourceUrl": "/helpdesk/tickets/HD-202"
+    },
+    {
+        "id": "HD-203",
+        "title": "Update support documentation",
+        "description": "Update documentation for common support queries.",
+        "employee": "Neha Singh",
+        "status": "Pending",
+        "urgency": "Low",
+        "deadline": "2026-11-05T12:00:00",
+        "source": "Helpdesk",
+        "sourceUrl": "/helpdesk/tickets/HD-203"
+    }
+]
